@@ -25,4 +25,21 @@ WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column`
 
 ## Usage
-To use this application, go to the the deployed site [Note Taker]()
+To use this application, go to the the deployed site [Note Taker](https://note-taker1991.herokuapp.com/). Press `Get Started` and click on `Note title` and `Note text` to write your own note. Press the `Save` icon to save, and the `trash` icon to delete. 
+
+![Home Page](screenshot_index.png)
+![Notes Page](screenshot_notes.png)
+![JSON](screenshot_json.png)
+
+## Tech Used
+* Node.js
+* Express.js
+* JavaScript
+* Heroku
+* Insomnia Core
+
+## Credits 
+Big thanks to my tutor and the instructional staff at UPenn LPS Coding Bootcamp!
+
+
+
