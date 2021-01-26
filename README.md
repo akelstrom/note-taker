@@ -25,7 +25,8 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete`
 >THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column\`
 
 ## Usage
-To use this application, go to the the deployed site [Note Taker](https://note-taker1991.herokuapp.com/). Press `Get Started` and click on `Note title` and `Note text` to write your own note. Press the `Save` icon to save, and the `trash` icon to delete. 
+To use this application, go to the the deployed site here: [Note Taker](https://note-taker1991.herokuapp.com/).\
+Press `Get Started` and click on `Note title` and `Note text` to write your own note. Press the `Save` icon to save, and the `trash` icon to delete. 
 
 ![Home Page](screenshot_index.png)
 ![Notes Page](screenshot_notes.png)
