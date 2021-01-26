@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-//get requests
+//GET REQUESTS
 
 //returns index.html
 app.get("/", (req, res) => {
@@ -35,28 +35,45 @@ app.get("/api/notes", (req, res) => {
   res.json(results);
 });
 
-//recieve a new notes to save on the request body, add it to the db.json file 
+//POST REQUEST:
+
+//recieve new notes to save on the request body, and add it to the json file,
 //and then return a new note to the client
 //*need to give each note a unique id
 app.post("/api/notes", (req, res) => {
   //req.body is where incoming content will be
   //set unquie id based on what the next index of the array will be
   req.body.id = notes.length.toString();
-  //add note to json file and notes array in this function
+  //create a variable for new notes, set equal to the req.body
   const newNote = req.body
-
   //push new note to the db.json file
   notes.push(newNote);
   res.json(newNote);
 });
 
+//GET * REQUEST
 
 //returns index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/index.html"));
 });
 
-app.delete("")
+//Bonus: should recive a query parameter containing the id of a note to delete. 
+//In order to delete a note you need to read all the notes from the db.json file, remove the note with the given id property
+//and rewrite the note to the db.json file
+app.delete("/api/notes/:id", (req,res) => {
+  //use query params to find id of note to delte
+    const deleteNote = notes.findIndex((note) => note.id === req.params.id);
+  
+    //splice the note from the array
+    notes.splice(deleteNote, 1);
+
+    //use fs module to update array after deleted
+    fs.writeFileSync("./data/db.json", JSON.stringify(notes, null, 2), function(err){
+      if (err) throw err;
+    })
+    res.json("Note deleted!")
+});
 
 //server listening
 app.listen(PORT, () => {
